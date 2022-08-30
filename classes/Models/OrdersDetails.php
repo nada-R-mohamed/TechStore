@@ -12,14 +12,14 @@ class OrdersDetails extends Db
     $this->connect();
   }
 
-  public function selectAllProduct($orderId)
+  public function selectWithProducts($orderId)
   {
     $sql    = "SELECT qty, name, price FROM $this->table JOIN products
-    ON $this->table.product_id = products.id WHERE order_id = '$orderId' ";
+    ON $this->table.product_id = products.id WHERE order_id = $orderId ";
     
-     $result = mysqli_query($this->conn ,$sql);
+    $result = mysqli_query($this->conn ,$sql);
 
-     return mysqli_fetch_all($result , MYSQLI_ASSOC);
+    return mysqli_fetch_all($result , MYSQLI_ASSOC);
   }
   
 }

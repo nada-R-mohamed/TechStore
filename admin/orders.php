@@ -5,7 +5,7 @@
 use TechStore\Classes\Models\Order;
 
 $ord = new Order;
-$orders = $ord->selectAll("orders.id , orders.name , orders.phone ,orders.status , orders.created_at , SUM(qty * price) AS total ");
+$orders = $ord->selectAll("orders.id , orders.name ,orders.phone,orders.status,orders.created_at ,SUM(qty * price)  AS total ");
 
 ?>
 

@@ -6,6 +6,7 @@
 use TechStore\Classes\Models\Product;
 use TechStore\Classes\Models\Cat;
 use TechStore\Classes\Models\Order;
+// use TechStore\Classes\Models\Admin;
 
 $pr = new Product;
 $productsCount = $pr->getCount();
@@ -15,6 +16,9 @@ $catsCount = $c->getCount();
 
 $order = new Order;
 $ordersCount = $order->getCount();
+
+// $admin = new Admin;
+// $adminsCount = $admin->getCount();
 
 ?>
 
@@ -57,6 +61,18 @@ $ordersCount = $order->getCount();
                     </div>
                 </div>
             </div>
+
+            <!-- <div class="col-md-4">
+                <div class="card text-white bg-info mb-3">
+                    <div class="card-header">Admins</div>
+                    <div class="card-body">
+                        <div class="card-text d-flex justify-content-between align-items-center">
+                            <h5><?= $adminsCount; ?></h5>
+                          <a href="<?= AURL; ?>admins.php" class="btn btn-light">Show</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
 
         </div>
     </div>

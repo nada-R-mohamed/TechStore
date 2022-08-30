@@ -9,11 +9,10 @@ if ($request->getHas('id')) {
 
   $id = $request->get('id');
   $ord = new Order;
-  $ord->update("status = 'cancelled'" , $id);
+  $ord->update("status = 'approved'" , $id);
 
-    $session->set('success' , 'order cancelled');
-    $request->aredirect("order.php?id=" . $id);
+    $session->set('success' , 'order approved');
+    $request->aredirect("order.php?id=" .$id );
 }
-
 
 ob_end_flush();

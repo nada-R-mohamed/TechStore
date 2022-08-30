@@ -20,7 +20,7 @@ $cats = $c->selectAll("id , name");
 
 
 $product = new Product;
-$prod   = $product->selectId($id ," products.name AS prodName, `desc` , cats.name AS catsName , img, pieces_no , price , cat_id ");
+$prod   = $product->selectId($id ," products.name AS prodName, `desc` , cats.name AS catName , img, pieces_no , price , cat_id ");
 
 
 ?>

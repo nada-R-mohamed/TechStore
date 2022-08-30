@@ -1,30 +1,33 @@
 <?php
 ob_start();
-require_once "../../app.php";
+require_once ("../../app.php");
 
-use TechStore\Classes\Models\Cat;
 use TechStore\Classes\Validation\Validator;
+use TechStore\Classes\Models\Cat;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($request->postHas('submit')) {
 
-  $name       = $request->post('name_category');
+  $name = $request->post('name');
 
-  // validation
-  $validator = new Validator();
-  $validator->validate("Name", $name, ["Required", "Str", "Max"]);
+   // validation
+    $validator = new Validator();
+    $validator->validate("name", $name, ["Required", "Str", "Max"]);
 
-  if ($validator->hasErrors()) {
-    $session->set("errors", $validator->getErrors());
-    $request->aredirect("add-category.php");
-  } else {
+    if($validator->hasErrors()) {
+
+      $session->set("errors", $validator->getErrors());
+      $request->aredirect("add-category.php");
+
+    } else {
 
     $catObject = new Cat;
-
-    $catObject->insert("`name`", "'$name'");
-
+    $catObject->insert("name" , $name);
     $session->set("success", "category added SeccessFliy");
-    $request->aredirect("index.php");
-  }
+    $request->aredirect("categories.php");
+
+    }
+
+    
 } else {
   $request->aredirect("add-category.php");
 }

@@ -3,8 +3,8 @@
 <?php 
 use TechStore\Classes\Models\Cat;
 
-$cats = new Cat;
-$cats->selectAll("cats.id ,cats.name , cats.created_at");
+$cat = new Cat;
+$cats = $cat->selectAll("id ,name ,created_at");
 
 ?>
     <div class="container-fluid py-5">
@@ -14,7 +14,7 @@ $cats->selectAll("cats.id ,cats.name , cats.created_at");
 
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3>All Categories</h3>
-                    <a href="#" class="btn btn-success">
+                    <a href="<?= AURL . "handlers/handlers-add-category.php";?>" class="btn btn-success">
                         Add new
                     </a>
                 </div>
@@ -35,10 +35,10 @@ $cats->selectAll("cats.id ,cats.name , cats.created_at");
                         <td><?= $cat['name']; ?></td>
                         <td><?= $cat['created_at']; ?></td>
                         <td>
-                            <a class="btn btn-sm btn-info" href="#">
+                            <a class="btn btn-sm btn-info" href="<?= AURL . "edit-category.php?id=" . $cat['id'] ; ?>">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a class="btn btn-sm btn-danger" href="<?= AURL . "categories.php?id=". $cat['id']; ?>">
+                            <a class="btn btn-sm btn-danger" href="<?= AURL . "handlres/delete-categories.php?id=". $cat['id']; ?>">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
