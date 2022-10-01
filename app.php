@@ -7,10 +7,10 @@ use TechStore\Classes\Session;
 
 
 define("PATH",__DIR__ . "/");
-define("URL", "http://localhost/techstore/");
+define("URL", "https://nada-r-mohamed.github.io/techstore/");
 
 define("APATH",__DIR__ . "/admin/");
-define("AURL", "http://localhost/techstore/admin/");
+define("AURL", "https://nada-r-mohamed.github.io/techstore/admin/");
 
 
 // db credentials
